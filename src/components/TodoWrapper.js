@@ -49,11 +49,12 @@ export const TodoWrapper = () => {
     );
   }
 
-  // edit a todo: check id then change name
+  // edit a todo: check id then change name and change completed to false
+  // because if a todo is edited then it is not completed
     const editTodo = (id, name) => {
       setTodos(
         todos.map((todo) =>
-          todo.id === id ? { ...todo, name: name, isEditing: !todo.isEditing } : todo
+          todo.id === id ? { ...todo, name: name, completed: false, isEditing: !todo.isEditing } : todo
         )
       );
     };
@@ -70,7 +71,11 @@ export const TodoWrapper = () => {
 
         // editing case
         todo.isEditing ? (
-          <EditTodoForm todo={todo} editTodo={editTodo} />
+          <EditTodoForm 
+            todo={todo} 
+            toggleEdit={toggleEdit} 
+            editTodo={editTodo}
+          />
         ) : (
 
           // display case
