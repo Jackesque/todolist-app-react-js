@@ -57,6 +57,9 @@ export const TodoWrapperDemo = () => {
     ]);
   }
 
+  // delete all completed todos
+  const deleteCompleted = () => setTodos(todos.filter((todo) => todo.completed === false));
+
   // toggle complete: check for id then flip completed prop of selected id
   const toggleComplete = (id) => {
 
@@ -68,18 +71,23 @@ export const TodoWrapperDemo = () => {
     );
   }
 
-  const swapElements = (array, id) => {
+  // swap elements in an array
+  const swapElementToNext = (array, id) => {
     let swapIndex = 0;
+    // find the index of the element
     for (const element of array) {
       if(element.id !== id) ++swapIndex;
       else break;
     }
+
+    // swap with the next element
     if(swapIndex < array.length - 1)
       [array[swapIndex], array[swapIndex+1]] = [array[swapIndex+1], array[swapIndex]];
   };
 
+  // toggle snooze count: swap down the todo and add 1 to snoozeCount
   const toggleSnooze = (id) => {
-    swapElements(todos, id);
+    swapElementToNext(todos, id);
     setTodos(
       todos.map((todo) =>
         todo.id === id ? { ...todo, snoozeCount: ++todo.snoozeCount } : todo
@@ -112,17 +120,26 @@ export const TodoWrapperDemo = () => {
   return (
     <div className="TodoWrapper">
       <h1>Ai Lau Nhà Tuần Này?</h1>
-      {todos.length !== 0 ? (<p className="WhoMops">{
-        // self-calling anonymous function
-        (() => {
-          for (const todo of todos)
-            if (todo.completed === false)
-              return todo.name;
-        })()
-      }</p>) : (<p></p>)}
+
+      {/* show who mops this week */}
+      {todos.length > 0 && (<div className='WhoMops'>
+        Tuần này&nbsp;
+        <span className='TheOneWhoMops'>{
+          // self-calling anonymous function
+          (() => {
+            for (const todo of todos)
+              if (todo.completed === false)
+                return todo.name;
+          })()
+        }</span>
+        &nbsp;lau nhà nha
+      </div>)}
 
       {/* add a todo */}
       <TodoForm addTodo={addTodo} />
+
+      {/* delete completed todos */}
+      <button className="todo-btn" style={{display: "flex", margin: "auto 0 1rem auto"}} onClick={() => deleteCompleted()}>Dọn</button>
 
       {/* display todos */}
       {todos.map((todo) => (

@@ -20,10 +20,12 @@ export const TodoForm = ({addTodo}) => {
   return (
     // when user press submit
     <form onSubmit={handleSubmit} className="TodoForm">
+
       {/* change value based on keyboard input */}
-      <input type="text" value={value} onChange={(e) => setValue(e.target.value)} className="todo-input" placeholder='Thêm người lau nhà' />
+      <input type="text" value={value} onChange={(e) => setValue(e.target.value)} className="todo-input" placeholder="Thêm người lau nhà" />
+
       {/* submit button */}
-      <button type="submit" className='todo-btn'>Thêm</button>
+      <button type="submit" className="todo-btn">Thêm</button>
     </form>
     )
   }

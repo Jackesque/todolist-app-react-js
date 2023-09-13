@@ -22,9 +22,9 @@ export const EditTodoForm = ({todo, toggleEdit, editTodo}) => {
   return (
     <form onSubmit={handleSubmit} className="TodoForm">
       {/* change value into what the user type */}
-      <input type="text" value={value} onChange={(e) => setValue(e.target.value)} className="todo-input" placeholder='Thay Tên' />
+      <input type="text" value={value} onChange={(e) => setValue(e.target.value)} className="todo-input" placeholder="Thay Tên" />
       {/* when button is pressed, handleSubmit run */}
-      <button type="submit" className='todo-btn'>Xong</button>
+      <button type="submit" className="todo-btn">Xong</button>
     </form>
     )
   }

@@ -6,7 +6,7 @@ import { Todo } from './Todo';
 uuidv4();
 
 export const TodoWrapper = () => {
-  const [todos, setTodos] = useState([])
+  const [todos, setTodos] = useState([]);
   
   useEffect(() => {
     const savedTodos = JSON.parse(localStorage.getItem('todos')) || [];
@@ -26,6 +26,13 @@ export const TodoWrapper = () => {
     setTodos(newTodos);
     localStorage.setItem('todos', JSON.stringify(newTodos));
   }
+
+  const deleteCompleted = () => {
+    const newTodos = todos.filter((todo) => todo.completed === false);
+
+    setTodos(newTodos);
+    localStorage.setItem('todos', JSON.stringify(newTodos));
+  }
   
   const toggleComplete = (id) => {
     const newTodos = todos.map((todo) => todo.id === id ? {...todo, completed: !todo.completed} : todo);
@@ -34,7 +41,7 @@ export const TodoWrapper = () => {
     localStorage.setItem('todos', JSON.stringify(newTodos));
   }
 
-  const swapElements = (array, id) => {
+  const swapElementToNext = (array, id) => {
     let swapIndex = 0;
     for (const element of array) {
       if(element.id !== id) ++swapIndex;
@@ -45,7 +52,7 @@ export const TodoWrapper = () => {
   };
   
   const toggleSnooze = (id) => {
-    swapElements(todos, id);
+    swapElementToNext(todos, id);
     const newTodos = todos.map((todo) =>
       todo.id === id ? { ...todo, snoozeCount: ++todo.snoozeCount } : todo);
 
@@ -77,6 +84,7 @@ export const TodoWrapper = () => {
   return (
     <div className='TodoWrapper'>
       <h1>Ai Lau Nhà Tuần Này?</h1>
+
       {todos.length !== 0 ? (<div className='WhoMops'>
         Tuần này&nbsp;
         <span className='TheOneWhoMops'>{
@@ -90,6 +98,8 @@ export const TodoWrapper = () => {
       </div>) : (<p></p>)}
 
       <TodoForm addTodo={addTodo} />
+
+      <button className="todo-btn" style={{display: "flex", margin: "auto 0 1rem auto"}} onClick={() => deleteCompleted()}>Dọn</button>
 
       {todos.map((todo, index) => (
         todo.isEditing ? (

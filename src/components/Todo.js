@@ -7,13 +7,13 @@ export const Todo = ({todo, addTodo, toggleComplete, toggleSnooze, toggleEdit, d
   return (
     <div className="Todo">
       {/* change css for completed todo */}
-      <p className={`${todo.completed ? 'completed' : ""}`} onClick={() => toggleComplete(todo.id)}>{todo.name}</p>
+      <p className={`${todo.completed ? "completed" : ""}`}>{todo.name}</p>
 
       {/* I want to move the component down to the end 
       but react doesnt allow 2 hooks in the same component
       so this is a workaround: 
       when click, delete todo; then on mouse up, add that todo back down */}
-      <div className='icons'>
+      <div className="icons">
         <FontAwesomeIcon icon={faCheck} 
           onClick={() => toggleComplete(todo.id)} 
           onMouseUp={()=> {
@@ -30,7 +30,7 @@ export const Todo = ({todo, addTodo, toggleComplete, toggleSnooze, toggleEdit, d
         }
           />
         ) : (
-          <p className={`${todo.snoozeCount < 2 ? '' : todo.snoozeCount < 4 ? 'warning' : 'danger'}`} 
+          <p className={`${todo.snoozeCount < 2 ? "" : todo.snoozeCount < 4 ? "warning" : "danger"}`} 
             onClick={() => {
               if (todo.completed === false)
                 toggleSnooze(todo.id);
