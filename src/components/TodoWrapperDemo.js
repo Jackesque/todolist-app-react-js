@@ -5,6 +5,7 @@ import { EditTodoForm } from "./EditTodoForm";
 import { Todo } from "./Todo";
 
 export const TodoWrapperDemo = () => {
+
   // create a todos array
   const [todos, setTodos] = useState([
     { id: uuidv4(), 
@@ -56,9 +57,6 @@ export const TodoWrapperDemo = () => {
       }
     ]);
   }
-
-  // delete all completed todos
-  const deleteCompleted = () => setTodos(todos.filter((todo) => todo.completed === false));
 
   // toggle complete: check for id then flip completed prop of selected id
   const toggleComplete = (id) => {
@@ -114,6 +112,9 @@ export const TodoWrapperDemo = () => {
       );
     };
 
+  // delete all completed todos
+  const deleteCompleted = () => setTodos(todos.filter((todo) => todo.completed === false));
+
   // delete a todo: filter out the todo with arg id
   const deleteTodo = (id) => setTodos(todos.filter((todo) => todo.id !== id));
 
@@ -138,8 +139,10 @@ export const TodoWrapperDemo = () => {
       {/* add a todo */}
       <TodoForm addTodo={addTodo} />
 
-      {/* delete completed todos */}
-      <button className="todo-btn" style={{display: "flex", margin: "auto 0 1rem auto"}} onClick={() => deleteCompleted()}>Dọn</button>
+      {/* display a button to delete all completed todos */}
+      {todos.length > 0 && (<button className="todo-btn" 
+      style={{display: "flex", margin: "auto 0 1rem auto"}} 
+      onClick={() => deleteCompleted()}>Dọn</button>)}
 
       {/* display todos */}
       {todos.map((todo) => (
@@ -158,6 +161,7 @@ export const TodoWrapperDemo = () => {
           // key prop is required
             key={todo.id}
             todo={todo} 
+            todos={todos}
             addTodo={addTodo}
             toggleComplete={toggleComplete}
             toggleSnooze={toggleSnooze}

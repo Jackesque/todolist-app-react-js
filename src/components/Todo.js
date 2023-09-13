@@ -2,7 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck, faPenToSquare, faBed, faTrash } from '@fortawesome/free-solid-svg-icons'
 
-export const Todo = ({todo, addTodo, toggleComplete, toggleSnooze, toggleEdit, deleteTodo}) => {
+export const Todo = ({todo, todos, addTodo, toggleComplete, toggleSnooze, toggleEdit, deleteTodo}) => {
   
   return (
     <div className="Todo">
@@ -16,9 +16,11 @@ export const Todo = ({todo, addTodo, toggleComplete, toggleSnooze, toggleEdit, d
       <div className="icons">
         <FontAwesomeIcon icon={faCheck} 
           onClick={() => toggleComplete(todo.id)} 
-          onMouseUp={()=> {
+          onMouseUp={() => {
             if (todo.completed === false)
               addTodo(todo.name);
+            else
+              todos.pop();
           }}  
         />
         {todo.snoozeCount === 0 ? (

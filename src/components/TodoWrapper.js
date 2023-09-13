@@ -99,7 +99,9 @@ export const TodoWrapper = () => {
 
       <TodoForm addTodo={addTodo} />
 
-      <button className="todo-btn" style={{display: "flex", margin: "auto 0 1rem auto"}} onClick={() => deleteCompleted()}>Dọn</button>
+      {todos.length > 0 && (<button className="todo-btn" 
+      style={{display: "flex", margin: "auto 0 1rem auto"}} 
+      onClick={() => deleteCompleted()}>Dọn</button>)}
 
       {todos.map((todo, index) => (
         todo.isEditing ? (
@@ -112,6 +114,7 @@ export const TodoWrapper = () => {
           <Todo 
             key={index} 
             todo={todo} 
+            todos={todos} 
             addTodo={addTodo}
             toggleComplete={toggleComplete} 
             toggleSnooze={toggleSnooze} 
