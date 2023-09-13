@@ -60,6 +60,22 @@ h1 {
   
 }
 
+.WhoMops {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  background: #ddd;
+  color: #000;
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  user-select: none;
+}
+
+.WhoMops .TheOneWhoMops {
+  color: #8758ff;
+}
+
 .Todo {
   display: flex;
   justify-content: space-between;
@@ -72,20 +88,33 @@ h1 {
   user-select: none;
 }
 
-.Todo p {
-  flex: 1 1 auto;
+.Todo > p {
+  flex: 2 1;
   text-align: left;
   cursor: pointer;
 }
 
 .icons {
   display: flex;
+  flex: 1 1;
   gap: 0.5rem;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  align-items: center;
+  font-size: large;
   cursor: pointer;
 }
 
+.warning {
+  color: #facc15;
+  font-weight: bold;
+}
+
+.danger {
+  color: #dc2626;
+  font-weight: bold;
+}
+
 .completed {
-  color: #c5aeff;
+  opacity: 0.6;
   text-decoration: line-through;
 }
