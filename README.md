@@ -2,6 +2,35 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## TL;DR
+
+### Step 1: Install
+
+```shell
+npm install
+```
+
+### Step 2: Develop
+
+```shell
+npm run start
+```
+
+#### Wanna change the icon?
+
+In the `public` folder, replace the `favicon.ico` file to the file of your desired icon.
+
+> The new file should have the same name, which is `favicon.ico`.
+
+### Step 3: Build
+
+To host this app on a GitHub page, follow [this](https://github.com/gitname/react-gh-pages) instruction.\
+Finally, run:
+
+```shell
+npm run deploy
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
