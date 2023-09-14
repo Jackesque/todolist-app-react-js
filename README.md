@@ -3,7 +3,7 @@ A small todo app-styled reminder to tell whose turn it is to clean the floor.
 
 ## Icons
 
-<img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/plus.svg" width="16" height="16">: add.
+<img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/plus.svg" width="16" height="16" style="user-select: none">: add.
 
 <img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/trash.svg" width="16" height="16">: delete completed (~~strikethru~~) people.
 
