@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 // take in addTodo prop
 export const TodoForm = ({addTodo}) => {
@@ -25,7 +27,9 @@ export const TodoForm = ({addTodo}) => {
       <input type="text" value={value} onChange={(e) => setValue(e.target.value)} className="todo-input" placeholder="Thêm người lau nhà" />
 
       {/* submit button */}
-      <button type="submit" className="todo-btn">Thêm</button>
+      <button type="submit" className="todo-btn">
+        <FontAwesomeIcon icon={faPlus}/>
+      </button>
     </form>
     )
   }

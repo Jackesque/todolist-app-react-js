@@ -3,6 +3,8 @@ import { v4 as uuidv4 } from "uuid";
 import { TodoForm } from "./TodoForm";
 import { EditTodoForm } from "./EditTodoForm";
 import { Todo } from "./Todo";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export const TodoWrapperDemo = () => {
 
@@ -142,7 +144,9 @@ export const TodoWrapperDemo = () => {
       {/* display a button to delete all completed todos */}
       {todos.length > 0 && (<button className="todo-btn" 
       style={{display: "flex", margin: "auto 0 1rem auto"}} 
-      onClick={() => deleteCompleted()}>Dọn</button>)}
+      onClick={() => deleteCompleted()}>
+        <FontAwesomeIcon icon={faTrash}/>
+      </button>)}
 
       {/* display todos */}
       {todos.map((todo) => (

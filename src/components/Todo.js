@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheck, faPenToSquare, faBed, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faCheck, faPenToSquare, faBed, faX } from '@fortawesome/free-solid-svg-icons'
 
 export const Todo = ({todo, todos, addTodo, toggleComplete, toggleSnooze, toggleEdit, deleteTodo}) => {
   
@@ -42,7 +42,7 @@ export const Todo = ({todo, todos, addTodo, toggleComplete, toggleSnooze, toggle
         <FontAwesomeIcon icon={faPenToSquare} 
           onClick={() => toggleEdit(todo.id)} 
         />
-        <FontAwesomeIcon icon={faTrash} 
+        <FontAwesomeIcon icon={faX} 
           onClick={() => deleteTodo(todo.id)} 
         />
       </div>
