@@ -1,6 +1,7 @@
 {
   "name": "todo-react",
   "version": "0.1.0",
+  "homepage": "https://jackesque.github.io/todolist-app-react-js",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
@@ -21,6 +22,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "b": "react-scripts build",
     "i": "install",
     "s": "react-scripts start",
     "dev": "react-scripts start",
@@ -46,6 +50,7 @@
     ]
   },
   "devDependencies": {
-    "eslint-plugin-react-hooks": "^4.6.0"
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "gh-pages": "^6.0.0"
   }
 }
