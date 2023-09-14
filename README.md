@@ -17,4 +17,4 @@ A small todo app-styled reminder to tell whose turn it is to clean the floor.
 
 <img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/x.svg" width="16" height="16">: delete.
 
-<img src="https://jackesque.github.io/todolist-app-react-js/favicon.ico" width="16" height="16" alt="Cirno">: Cirno
+<img src="https://jackesque.github.io/todolist-app-react-js/favicon.ico" width="16" height="16" alt="Cirno">: Cirno.
